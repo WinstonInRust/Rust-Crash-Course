@@ -9,7 +9,7 @@ on:
 jobs:
   lint:
     name: Lint
-    runs-on: [macOS-latest, ubuntu-latest]
+    runs-on: [macOS-latest]
     steps:
       - name: Setup | Checkout
         uses: actions/checkout@v2
@@ -22,7 +22,7 @@ jobs:
         run: cargo clippy
   compile:
     name: Compile
-    runs-on: [macOS-latest,ubuntu-latest]
+    runs-on: [macOS-latest]
     steps:
       - name: Setup | Checkout
         uses: actions/checkout@v2
