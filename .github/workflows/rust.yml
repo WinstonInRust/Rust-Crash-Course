@@ -22,11 +22,26 @@ jobs:
       run: cargo test --verbose
       
   lint:
-    runs-on : ubuntu-latest
+    runs-on: ubuntu-latest
     
     steps:
     - uses : actions/checkout@v3
     - name : Lint
       run : cargo clippy --verbose
     
-  
+  compile:
+    runs-on:  ubuntu-latest
+    
+    steps:
+    - uses : actions/checkout@v3
+    - name : Compile
+      run : cargo check
+      
+  test:
+    runs-on:  actions/checkout@v3
+    
+    needs: [compile]
+    steps:
+    - uses : actions/checkout@v3
+    - name : Test
+      run : cargo test
