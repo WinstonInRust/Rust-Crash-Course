@@ -1,29 +1,12 @@
-use std::{error::Error, io::stdin};
+#[macro_use]
+extern crate rocket;
 
-fn main() -> Result<(), Box<dyn Error>> {
-    println!("********************************************");
-    println!("********************************************");
-    println!("Welcome by Generate a nth Fibonacci number");
-    println!("Enter a integer for n: ");
-    let mut n = String::new();
-    stdin().read_line(&mut n)?;
-    let n = n.trim().parse()?;
-
-    let number = fib(n);
-
-    println!("The Fibonacci({}) => {}", n, number,);
-    println!("********************************************");
-    println!("********************************************");
-
-    Ok(())
+#[get("/")]
+fn hello() -> &'static str {
+    "Hello, world!\n"
 }
 
-fn fib(n: i32) -> i32 {
-    if n <= 0 {
-        0
-    } else if n == 1 {
-        1
-    } else {
-        fib(n - 1) + fib(n - 2)
-    }
+#[rocket::main]
+async fn main() {
+    let _ = rocket::build().mount("/", routes![hello]).launch().await;
 }
