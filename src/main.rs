@@ -1,4 +1,4 @@
-use rocket::{self, get, launch, routes};
+use rocket::{self, get, routes};
 
 #[get("/")]
 fn welkom() -> &'static str {
