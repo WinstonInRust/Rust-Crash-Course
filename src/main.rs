@@ -1,3 +1,4 @@
+// Macro's are used to define routes and the main function
 use rocket::{self, get, routes}; // import of rocket crate and macro's
 
 #[get("/")] // macro to define a route
