@@ -22,8 +22,8 @@ fn update_user(id: i32) -> Value {
     json!({"id": id, "name": "Winston Muijs", "email" : "john@doe.com"})
 }
 
-#[delete("/user/<id>")] // macro to define a route for deleting a user with id
-fn delete_user(id: i32) -> status::NoContent {
+#[delete("/user/<_id>")] // macro to define a route for deleting a user with id
+fn delete_user(_id: i32) -> status::NoContent {
     status::NoContent
 }
 // macro to define a route
@@ -33,7 +33,7 @@ async fn main() {
     let _ = rocket::build()
         .mount(
             "/",
-            routes![get_user, view_user, create_user, update_user, delete_user],
+            routes![get_user, view_user, create_user, update_user, delete_user,],
         )
         .launch()
         .await; // start the rocket server
