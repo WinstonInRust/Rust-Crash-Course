@@ -57,7 +57,7 @@ fn not_found() -> Value {
 }
 
 #[get("/user")] // macro to define a route for all the resources
-fn get_user() -> Value {
+fn get_user(_auth: BasicAuth) -> Value {
     json!([{"id": 1, "name": "Winston Muijs"}, {"id": 2, "name": "Marcia Muijs"}])
 }
 
