@@ -1,4 +1,4 @@
 # Rust-Crash-Course
-![GitHub rust](https://img.shields.io/github/languages/top/{WinstonInRust}/{Rust-Crash-Course}?color=pink) 
+![GitHub top language](https://img.shields.io/github/languages/top/{username}/{repo-name}?color=lightblue)  
 
 Rust Course in Webdeveloment with Rust, Rocket and Diesel. 
