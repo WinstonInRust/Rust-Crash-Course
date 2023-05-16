@@ -1,6 +1,11 @@
 // Macro's are used to define routes and the main function
 use ::rocket::serde::json::{json, Value};
-use rocket::{self, delete, get, post, put, response::status, routes}; // import of rocket crate and macro's // import of json macro // import of json value
+use rocket::{self, catch, catchers, delete, get, post, put, response::status, routes}; // import of rocket crate and macro's // import of json macro // import of json value
+
+#[catch(404)] // catching a 404 error
+fn not_found() -> Value {
+    json!({"status": "error", "reason": "Resource was not found."})
+}
 
 #[get("/user")] // macro to define a route for all the resources
 fn get_user() -> Value {
@@ -33,8 +38,9 @@ async fn main() {
     let _ = rocket::build()
         .mount(
             "/",
-            routes![get_user, view_user, create_user, update_user, delete_user,],
+            routes![get_user, view_user, create_user, update_user, delete_user],
         )
+        .register("/", catchers![not_found])
         .launch()
         .await; // start the rocket server
 }
