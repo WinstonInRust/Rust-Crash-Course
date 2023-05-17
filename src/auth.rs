@@ -1,4 +1,4 @@
-// Basic Autherization for Rocket with password hashing.
+// Basic Authorization for Rocket with password hashing.
 use rocket::http::Status;
 use rocket::request::{FromRequest, Outcome, Request};
 use std::error::Error;
