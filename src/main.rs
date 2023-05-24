@@ -1,3 +1,5 @@
+// Webprogramming with Rust
+
 // Macro's are used to define routes and the main function
 use ::rocket::serde::json::{json, Value};
 use auth::BasicAuth;
